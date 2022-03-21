@@ -7,7 +7,7 @@ services:
       context: ..
       dockerfile: docker/nginx/Dockerfile
     ports:
-      - 5000:80
+      - 127.0.0.1:5000:80
     networks:
       - fpm
       - internet
@@ -23,7 +23,9 @@ services:
       MYSQL_USER: engelsystem
       MYSQL_PASSWORD: engelsystem
       MYSQL_DATABASE: engelsystem
-    env_file: deployment.env
+    env_file:
+      - deployment.env
+      - secret.env
     networks:
       - database
       - fpm
