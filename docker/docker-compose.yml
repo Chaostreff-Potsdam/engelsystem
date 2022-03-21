@@ -26,6 +26,7 @@ services:
     env_file:
       - deployment.env
       - secret.env
+      - mail.env
     networks:
       - database
       - fpm
